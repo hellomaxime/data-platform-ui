@@ -1,17 +1,15 @@
 import { useState } from "react"
-import SidebarMenu from "./components/sidebar-menu/sidebar-menu";
+import SidebarMenu from "./components/sidebar-menu/SidebarMenu";
+import MainContent from "./components/main-content/MainContent";
 
 function App() {
 
-  // const [open, setOpen] = useState(true);
+  const [openTerminal, setOpenTerminal] = useState(false);
 
   return (
     <div className="flex justify-between">
-      <SidebarMenu />
-      <div className="h-screen w-full">
-        <iframe className="h-screen w-full" src="http://dataplatform.jupyterhub.io" title="shell"/>
-        {/* {open && <iframe className="absolute bottom-0" src="http://dataplatform.shell.io/wetty" width={"100%"} height={"300px"} title="shell"/>} */}
-      </div>
+      <SidebarMenu openTerminal={openTerminal} setOpenTerminal={setOpenTerminal}/>
+      <MainContent openTerminal={openTerminal}/>
     </div>
   )
 }
